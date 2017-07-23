@@ -8,8 +8,10 @@ import Vue from 'vue'
 import App from './app.vue'
 
 document.addEventListener('DOMContentLoaded', () => {
-  document.body.appendChild(document.createElement('hello'))
-  const app = new Vue(App).$mount('hello')
+  const node = document.getElementById('navbar')
+  const props = JSON.parse(node.getAttribute('data'))
 
-  console.log(app)
+  new Vue({
+    render: h => h(App, { props })
+  }).$mount('#navbar');
 })
