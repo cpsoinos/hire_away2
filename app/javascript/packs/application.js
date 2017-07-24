@@ -10,15 +10,18 @@
 // console.log('Hello World from Webpacker')
 
 import Vue from 'vue'
-import VueRouter from 'vue-router';
-import { routes } from './routes';
+import VueRouter from 'vue-router'
+import { routes } from './routes'
+
+import { DataStore } from 'js-data'
+import { HttpAdapter } from 'js-data-http'
+
 import ElementUI from 'element-ui'
 import enLocale from 'element-ui/lib/locale/lang/en'
 import 'element-ui/lib/theme-default/index.css'
+
 import _ from 'lodash'
 import App from './app.vue'
-
-// import './utilities/vue_compiler'
 
 import Navbar from './layouts/navbar.vue'
 import Sidebar from './layouts/sidebar.vue'
