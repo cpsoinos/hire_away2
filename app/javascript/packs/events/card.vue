@@ -9,11 +9,7 @@
 </template>
 
 <script>
-  const card = require('packs/events/card')
-  
-  module.exports = {
-    name: 'card'
-  }
+
 </script>
 
 <style lang="scss">

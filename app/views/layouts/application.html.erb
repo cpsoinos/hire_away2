@@ -9,10 +9,18 @@
   </head>
 
   <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
     <%= javascript_pack_tag 'application' %>
     <%= stylesheet_pack_tag 'application' %>
+
+    <%= content_tag :div,
+      id: "app",
+      data: {
+        message: "Hello!",
+        name: "David"
+      }.to_json do %>
+    <% end %>
+
     <%= yield %>
+    
   </body>
 </html>

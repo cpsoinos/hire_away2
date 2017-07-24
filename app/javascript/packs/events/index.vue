@@ -1,22 +1,22 @@
 <template lang="pug">
   .events
     el-row
-      el-col(:span="4")
-        card
-      el-col(:span="4")
-        card
-      el-col(:span="4")
-        card
+      el-col(:span="8")
+        Card
+      el-col(:span="8")
+        Card
+      el-col(:span="8")
+        Card
 </template>
 
 <script>
-  const card = require('packs/events/card')
+  import Card from './card'
 
-  module.exports = {
+  export default {
     name: 'index',
-    components: [
-      "card"
-    ]
+    components: {
+      Card
+    }
   }
 </script>
 

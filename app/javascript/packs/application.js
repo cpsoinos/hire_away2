@@ -11,14 +11,31 @@
 
 import Vue from 'vue'
 import ElementUI from 'element-ui'
+import enLocale from 'element-ui/lib/locale/lang/en'
 import 'element-ui/lib/theme-default/index.css'
-import Navbar from './layouts/navbar.vue'
+import _ from 'lodash'
+import App from './app.vue'
 
-Vue.use(ElementUI)
+// import './utilities/vue_compiler'
+
+import Navbar from './layouts/navbar.vue'
+import Sidebar from './layouts/sidebar.vue'
+import './stylesheets/global.scss'
+
+Vue.use(ElementUI, { locale: enLocale.default })
+window.Vue = Vue
+
+Vue.config.devtools = true
+Vue.config.debug = true
+Vue.config.silence = false
 
 document.addEventListener('DOMContentLoaded', () => {
-  document.body.appendChild(document.createElement('navbar'))
-  const navbar = new Vue(Navbar).$mount('navbar')
+  // const navbar = new Vue(Navbar).$mount('#navbar')
+  // const sidebar = new Vue(Sidebar).$mount('#sidebar')
+  const node = document.getElementById('app')
+  const props = JSON.parse(node.getAttribute('data'))
 
-  console.log(navbar)
+  new Vue({
+    render: h => h(App, { props })
+  }).$mount('#app');
 })
