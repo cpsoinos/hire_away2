@@ -2,8 +2,10 @@
   el-menu(theme="dark" :default-active="activeIndex" class="sidebar")
     el-submenu(index="1")
       template(slot="title") Events
-      el-menu-item(index="2") All
-      el-menu-item(index="3") New
+      el-menu-item(index="2")
+        router-link(to='/events') All
+      el-menu-item(index="3")
+        router-link(to='/events/new') New
     el-submenu(index="2")
       template(slot="title") Venues
       el-menu-item(index="4") All

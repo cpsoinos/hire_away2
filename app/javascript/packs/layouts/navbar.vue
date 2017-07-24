@@ -1,6 +1,7 @@
 <template lang="pug">
   el-menu(theme="dark" mode="horizontal" :default-active="activeIndex" class="navbar")
-    el-menu-item(index="1") Test One
+    el-menu-item(index="1")
+      router-link(to='/') HireAway
 </template>
 
 <script>

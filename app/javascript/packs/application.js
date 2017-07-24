@@ -10,6 +10,8 @@
 // console.log('Hello World from Webpacker')
 
 import Vue from 'vue'
+import VueRouter from 'vue-router';
+import { routes } from './routes';
 import ElementUI from 'element-ui'
 import enLocale from 'element-ui/lib/locale/lang/en'
 import 'element-ui/lib/theme-default/index.css'
@@ -23,19 +25,31 @@ import Sidebar from './layouts/sidebar.vue'
 import './stylesheets/global.scss'
 
 Vue.use(ElementUI, { locale: enLocale.default })
+Vue.use(VueRouter);
 window.Vue = Vue
 
 Vue.config.devtools = true
 Vue.config.debug = true
 Vue.config.silence = false
 
+
+// new Vue({
+//   el: '#app',
+//   router,
+//   render: h => h(App)
+// })
+
 document.addEventListener('DOMContentLoaded', () => {
   // const navbar = new Vue(Navbar).$mount('#navbar')
   // const sidebar = new Vue(Sidebar).$mount('#sidebar')
   const node = document.getElementById('app')
   const props = JSON.parse(node.getAttribute('data'))
+  const router = new VueRouter({
+    routes
+  });
 
   new Vue({
+    router,
     render: h => h(App, { props })
   }).$mount('#app');
 })

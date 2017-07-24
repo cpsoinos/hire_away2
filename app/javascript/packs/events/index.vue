@@ -1,25 +1,26 @@
 <template lang="pug">
-  .events
-    el-row
-      el-col(:span="8")
-        Card
-      el-col(:span="8")
-        Card
-      el-col(:span="8")
-        Card
-    el-row
-      EventForm
+  .main-panel
+    .content
+      el-row
+        el-col(:span="8" v-for="event in events", :key="event")
+          Card(:event="event")
 </template>
 
 <script>
   import Card from './card'
-  import EventForm from './form'
 
   export default {
     name: 'index',
     components: {
-      Card,
-      EventForm
+      Card
+    },
+    data() {
+      return {
+        events: [
+          { name: "event 1" },
+          { name: "event 2" }
+        ]
+      }
     }
   }
 </script>

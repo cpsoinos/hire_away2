@@ -2,9 +2,10 @@
   #app
     Navbar
     Sidebar
-    .main-panel
-      .content
-        Events
+    router-view
+    //- .main-panel
+    //-   .content
+        //- Events
 </template>
 
 <script>
