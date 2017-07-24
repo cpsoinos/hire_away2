@@ -8,12 +8,16 @@
         router-link(to='/events/new') New
     el-submenu(index="2")
       template(slot="title") Venues
-      el-menu-item(index="4") All
-      el-menu-item(index="5") New
+      el-menu-item(index="4")
+        router-link(to='/venues') All
+      el-menu-item(index="5")
+        router-link(to='/venues/new') New
     el-submenu(index="3")
       template(slot="title") Contacts
-      el-menu-item(index="6") All
-      el-menu-item(index="7") New
+      el-menu-item(index="6")
+        router-link(to='/contacts') All
+      el-menu-item(index="7")
+        router-link(to='/contacts/new') New
 </template>
 
 <script>
