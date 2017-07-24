@@ -7,15 +7,19 @@
         Card
       el-col(:span="8")
         Card
+    el-row
+      EventForm
 </template>
 
 <script>
   import Card from './card'
+  import EventForm from './form'
 
   export default {
     name: 'index',
     components: {
-      Card
+      Card,
+      EventForm
     }
   }
 </script>
