@@ -8,12 +8,6 @@
 
 <script>
   import Card from './card'
-  import User from '../../models/event/mapper'
-  // import { DataStore } from 'js-data'
-  // import { HttpAdapter } from 'js-data-http'
-  //
-  // const store = new DataStore();
-  // const httpAdapter = new HttpAdapter();
 
   export default {
     name: 'index',

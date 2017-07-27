@@ -13,9 +13,6 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import { routes } from './routes'
 
-import { DataStore } from 'js-data'
-import { HttpAdapter } from 'js-data-http'
-
 import ElementUI from 'element-ui'
 import enLocale from 'element-ui/lib/locale/lang/en'
 import 'element-ui/lib/theme-default/index.css'
