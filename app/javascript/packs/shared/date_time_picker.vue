@@ -1,7 +1,7 @@
 <template lang="pug">
   .block
     span
-    el-date-picker(v-model='value3', type='datetimerange', placeholder='Select time range')
+    el-date-picker(:model='value3', type='datetimerange', placeholder='Select time range')
 </template>
 
 <script>

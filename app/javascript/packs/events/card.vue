@@ -2,10 +2,10 @@
   .card
     el-card(class="box-card")
       .clearfix(slot="header")
-        span(style="line-height: 36px;") {{this.event.name}}
-        el-button(style="float: right;" type="primary") Operation button
-      .text.item(v-for="o in 4" :key="o")
-        | {{'List item ' + o }}
+        h4 {{this.event.name}}
+        p {{this.event.start_time}} - {{this.event.end_time}}
+      .text.item(v-for="position in this.event.positions" :key="position")
+        | {{position.name}}
 </template>
 
 <script>
@@ -18,4 +18,8 @@
 </script>
 
 <style lang="scss">
+  .card-header {
+    line-height: 36px;
+    font-weight: bold;
+  }
 </style>

@@ -10,10 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170723202654) do
+ActiveRecord::Schema.define(version: 20170727015436) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "ahoy_messages", force: :cascade do |t|
+    t.string "token"
+    t.text "to"
+    t.integer "user_id"
+    t.string "user_type"
+    t.string "mailer"
+    t.text "subject"
+    t.text "content"
+    t.datetime "sent_at"
+    t.datetime "opened_at"
+    t.datetime "clicked_at"
+    t.index ["token"], name: "index_ahoy_messages_on_token"
+    t.index ["user_id", "user_type"], name: "index_ahoy_messages_on_user_id_and_user_type"
+  end
 
   create_table "contacts", force: :cascade do |t|
     t.string "first_name"
@@ -29,6 +44,13 @@ ActiveRecord::Schema.define(version: 20170723202654) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "event_positions", force: :cascade do |t|
+    t.bigint "event_id"
+    t.bigint "position_id"
+    t.index ["event_id"], name: "index_event_positions_on_event_id"
+    t.index ["position_id"], name: "index_event_positions_on_position_id"
+  end
+
   create_table "events", force: :cascade do |t|
     t.string "name"
     t.datetime "start_time"
@@ -37,6 +59,12 @@ ActiveRecord::Schema.define(version: 20170723202654) do
     t.datetime "updated_at", null: false
     t.bigint "venue_id"
     t.index ["venue_id"], name: "index_events_on_venue_id"
+  end
+
+  create_table "positions", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -70,5 +98,7 @@ ActiveRecord::Schema.define(version: 20170723202654) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "event_positions", "events"
+  add_foreign_key "event_positions", "positions"
   add_foreign_key "events", "venues"
 end

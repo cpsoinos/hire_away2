@@ -12,6 +12,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import { routes } from './routes'
+import VueResource from 'vue-resource'
 
 import ElementUI from 'element-ui'
 import enLocale from 'element-ui/lib/locale/lang/en'
@@ -26,18 +27,12 @@ import './stylesheets/global.scss'
 
 Vue.use(ElementUI, { locale: enLocale.default })
 Vue.use(VueRouter);
+Vue.use(VueResource);
 window.Vue = Vue
 
 Vue.config.devtools = true
 Vue.config.debug = true
 Vue.config.silence = false
-
-
-// new Vue({
-//   el: '#app',
-//   router,
-//   render: h => h(App)
-// })
 
 document.addEventListener('DOMContentLoaded', () => {
   // const navbar = new Vue(Navbar).$mount('#navbar')
@@ -47,6 +42,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const router = new VueRouter({
     routes
   });
+
+  const Event = Vue.resource('events{/id}')
 
   new Vue({
     router,

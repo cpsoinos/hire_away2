@@ -7,6 +7,11 @@
 </template>
 
 <script>
+  import Vue from 'vue'
+  import VueResource from'vue-resource'
+  Vue.use(VueResource)
+
+  const resource = Vue.resource('events{/id}')
   import Card from './card'
 
   export default {
@@ -16,20 +21,15 @@
     },
     data() {
       return {
-        events: [
-          { name: "event 1" },
-          { name: "event 2" }
-        ]
+        events: []
       }
     },
     mounted() {
-      debugger
+      resource.get().then((response) => {
+        this.events = response.body
+      })
     }
   }
-
-
-
-
 </script>
 
 <style lang="scss">

@@ -3,7 +3,7 @@
   <head>
     <title>HireAway2</title>
     <%= csrf_meta_tags %>
-
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBjBn6XEd6nGIvaSydu-Rt5duYURk87a1E&libraries=places"></script>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
@@ -21,6 +21,6 @@
     <% end %>
 
     <%= yield %>
-    
+
   </body>
 </html>
