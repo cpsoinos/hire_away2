@@ -1,44 +1,39 @@
-/* eslint no-console:0 */
-// This file is automatically compiled by Webpack, along with any other files
-// present in this directory. You're encouraged to place your actual application logic in
-// a relevant structure within app/javascript and only use these pack files to reference
-// that code so it'll be compiled.
-//
-// To reference this file, add <%= javascript_pack_tag 'application' %> to the appropriate
-// layout file, like app/views/layouts/application.html.erb
-
-// console.log('Hello World from Webpacker')
-
 import Vue from 'vue'
-import VueRouter from 'vue-router'
-import { routes } from './routes'
-import VueResource from 'vue-resource'
-
-import ElementUI from 'element-ui'
-import enLocale from 'element-ui/lib/locale/lang/en'
-import 'element-ui/lib/theme-default/index.css'
-
-import _ from 'lodash'
+import Navbar from './components/layouts/navbar'
 import App from './app.vue'
+import router from './router'
 
-import Navbar from './layouts/navbar.vue'
-import Sidebar from './layouts/sidebar.vue'
-import './stylesheets/global.scss'
+// import VueMaterial from 'vue-material'
+// import 'vue-material/dist/vue-material.css'
+//
+// Vue.use(VueMaterial)
 
-Vue.use(ElementUI, { locale: enLocale.default })
+// import store from './store/index'
+// import { sync } from 'vuex-router-sync'
+
+// sync(store, router)
+
 Vue.use(VueRouter);
 Vue.use(VueResource);
 window.Vue = Vue
 
-Vue.config.devtools = true
-Vue.config.debug = true
-Vue.config.silence = false
+Vue.config.productionTip = false
+//
+// /* eslint-disable no-new */
+// new Vue({
+//   el: '#app',
+//   router,
+//   store,
+//   // template: '<app/>',
+//   components: { App }
+// })
+
 
 document.addEventListener('DOMContentLoaded', () => {
   // const navbar = new Vue(Navbar).$mount('#navbar')
   // const sidebar = new Vue(Sidebar).$mount('#sidebar')
   const node = document.getElementById('app')
-  const props = JSON.parse(node.getAttribute('data'))
+  // const props = JSON.parse(node.getAttribute('data'))
   const router = new VueRouter({
     routes
   });
@@ -48,5 +43,5 @@ document.addEventListener('DOMContentLoaded', () => {
   new Vue({
     router,
     render: h => h(App, { props })
-  }).$mount('#app');
+  }).$mount(node);
 })

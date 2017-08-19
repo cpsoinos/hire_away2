@@ -3,7 +3,8 @@
     .content
       el-row
         el-col(:span="8" v-for="event in events", :key="event")
-          Card(:event="event")
+          router-link(:to="event_path(event)")
+            Card(:event="event")
 </template>
 
 <script>
@@ -17,17 +18,25 @@
   export default {
     name: 'index',
     components: {
-      Card
+      Card,
     },
+
     data() {
       return {
         events: []
       }
     },
+
     mounted() {
       resource.get().then((response) => {
         this.events = response.body
       })
+    },
+
+    methods: {
+      event_path(event) {
+        return `/events/${event.id}`
+      }
     }
   }
 </script>

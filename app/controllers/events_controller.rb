@@ -13,7 +13,7 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find(params[:id])
-    render json: @event
+    render json: @event, include: [:venue]
   end
 
   def create
