@@ -1,13 +1,13 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Dashboard from '../components/dashboard/index.vue'
-import Event from '../components/events/index.vue';
-import EventForm from '../components/events/form.vue';
-import EventShow from '../components/events/show.vue';
-import Contact from '../components/contacts/index.vue';
-import ContactForm from '../components/contacts/form.vue';
-import Venue from '../components/venues/index.vue';
-import VenueForm from '../components/venues/form.vue';
+import Dashboard from './components/dashboard/index.vue'
+import Events from './components/events/index.vue';
+import EventForm from './components/events/form.vue';
+import EventShow from './components/events/show.vue';
+import Contacts from './components/contacts/index.vue';
+import ContactForm from './components/contacts/form.vue';
+import Venues from './components/venues/index.vue';
+import VenueForm from './components/venues/form.vue';
 
 Vue.use(Router)
 
@@ -20,7 +20,7 @@ export default new Router({
     },
     {
       path:      '/events',
-      name:      'Event',
+      name:      'Events',
       component: Events
     },
     {

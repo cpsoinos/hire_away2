@@ -6,7 +6,7 @@ class EventsController < ApplicationController
       format.html
       format.json do
         @events = Event.all
-        render json: @events
+        render json: @events, include: [:venue]
       end
     end
   end

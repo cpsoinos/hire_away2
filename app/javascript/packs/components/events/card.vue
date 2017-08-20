@@ -1,11 +1,18 @@
 <template lang="pug">
   .card
-    el-card(class="box-card")
-      .clearfix(slot="header")
-        h4 {{this.event.name}}
-        p {{this.event.start_time}} - {{this.event.end_time}}
-      .text.item(v-for="position in this.event.positions" :key="position")
-        | {{position.name}}
+    md-card
+      md-card-media
+        img(src="https://static.pexels.com/photos/59523/pexels-photo-59523.jpeg")
+      md-card-header
+        .md-title
+          router-link(:to="event_path(event)") {{event.name}}
+        .md-subhead {{this.event.start_time}} - {{this.event.end_time}}
+      md-card-content
+        p(v-for="position in this.event.positions")
+          | {{position.name}}
+      md-card-actions
+        md-button Action
+        md-button Action
 </template>
 
 <script>
@@ -14,6 +21,13 @@
     props: [
       "event"
     ],
+
+    methods: {
+      event_path(event) {
+        return `/events/${event.id}`
+      }
+    }
+
   }
 </script>
 

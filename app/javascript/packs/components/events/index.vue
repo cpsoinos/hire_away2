@@ -1,10 +1,8 @@
 <template lang="pug">
-  .main-panel
-    .content
-      el-row
-        el-col(:span="8" v-for="event in events", :key="event")
-          router-link(:to="event_path(event)")
-            Card(:event="event")
+  .events
+    md-layout(md-gutter)
+      md-layout(md-flex="33" v-for="event in events")
+        Card(:event="event")
 </template>
 
 <script>
@@ -33,11 +31,7 @@
       })
     },
 
-    methods: {
-      event_path(event) {
-        return `/events/${event.id}`
-      }
-    }
+
   }
 </script>
 
